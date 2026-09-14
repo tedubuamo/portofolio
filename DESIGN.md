@@ -195,7 +195,7 @@ The contact section uses a two-column layout with simple row links for LinkedIn,
 
 ## Interaction
 
-- **Theme toggle:** switches between light and dark mode, stores the preference in `localStorage`, and updates the browser theme color.
+- **Theme toggle:** switches between light and dark mode, stores the preference in `localStorage`, updates `html.dark`, updates `html[data-theme]`, updates `color-scheme`, updates the browser theme color, and changes the visible icon so the current state is clear.
 - **Language toggle:** switches page copy between Indonesian and English, stores the preference in `localStorage`, updates `html[lang]`, and keeps ARIA labels/title text in sync.
 - **Carousel:** supports automatic rotation, previous/next controls, dot navigation, keyboard arrows, pause on focus, and reduced-motion preferences.
 - **Focus states:** use visible outlines in blue or green so keyboard navigation remains clear.

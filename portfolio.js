@@ -1,4 +1,5 @@
 const toggle = document.getElementById('theme-toggle');
+const themeIcon = document.querySelector('[data-theme-icon]');
 const languageToggle = document.getElementById('language-toggle');
 const preference = matchMedia('(prefers-color-scheme: dark)');
 const translations = {
@@ -196,23 +197,24 @@ function activeCopy() {
 
 function applyLanguage(language) {
   const copy = translations[language] || translations.id;
+  const textFor = key => copy[key] ?? translations.id[key] ?? '';
   document.documentElement.lang = language;
   document.title = copy.pageTitle;
   document.querySelector('meta[name="description"]').content = copy.metaDescription;
   document.querySelectorAll('[data-i18n]').forEach(element => {
-    element.textContent = copy[element.dataset.i18n];
+    element.textContent = textFor(element.dataset.i18n);
   });
   document.querySelectorAll('[data-i18n-html]').forEach(element => {
-    element.innerHTML = copy[element.dataset.i18nHtml];
+    element.innerHTML = textFor(element.dataset.i18nHtml);
   });
   document.querySelectorAll('[data-i18n-aria]').forEach(element => {
-    element.setAttribute('aria-label', copy[element.dataset.i18nAria]);
+    element.setAttribute('aria-label', textFor(element.dataset.i18nAria));
   });
   document.querySelectorAll('[data-i18n-title]').forEach(element => {
-    element.title = copy[element.dataset.i18nTitle];
+    element.title = textFor(element.dataset.i18nTitle);
   });
   document.querySelectorAll('[data-i18n-alt]').forEach(element => {
-    element.alt = copy[element.dataset.i18nAlt];
+    element.alt = textFor(element.dataset.i18nAlt);
   });
   languageToggle.textContent = language === 'id' ? 'EN' : 'ID';
   languageToggle.setAttribute('aria-label', copy.languageToggle);
@@ -224,21 +226,26 @@ function syncTheme() {
   const dark = document.documentElement.dataset.theme === 'dark';
   const copy = activeCopy();
   document.documentElement.classList.toggle('dark', dark);
+  document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+  document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+  if (themeIcon) themeIcon.textContent = dark ? '☀' : '◐';
   toggle.setAttribute('aria-label', dark ? copy.lightMode : copy.darkMode);
   toggle.title = toggle.getAttribute('aria-label');
   document.querySelector('meta[name="theme-color"]').content = dark ? '#141817' : '#ffffff';
 }
 toggle.addEventListener('click', () => {
-  const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-  document.documentElement.dataset.theme = theme;
-  try { localStorage.setItem('portfolio-theme', theme); } catch {}
+  const nextTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+  document.documentElement.dataset.theme = nextTheme;
+  try { localStorage.setItem('portfolio-theme', nextTheme); } catch {}
   syncTheme();
 });
-preference.addEventListener('change', event => {
+function syncSystemTheme(event) {
   try { if (localStorage.getItem('portfolio-theme')) return; } catch {}
   document.documentElement.dataset.theme = event.matches ? 'dark' : 'light';
   syncTheme();
-});
+}
+if (preference.addEventListener) preference.addEventListener('change', syncSystemTheme);
+else if (preference.addListener) preference.addListener(syncSystemTheme);
 languageToggle.addEventListener('click', () => {
   applyLanguage(document.documentElement.lang === 'id' ? 'en' : 'id');
   rotationLabel();
@@ -279,7 +286,9 @@ function update() {
 function go(next) {
   if (!track.clientWidth || !Number.isFinite(next)) return;
   index = (next + slides.length) % slides.length;
-  track.scrollTo({ left: index * track.clientWidth, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+  const left = index * track.clientWidth;
+  if (track.scrollTo) track.scrollTo({ left, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+  else track.scrollLeft = left;
   schedule();
 }
 function rotationLabel() {
@@ -310,13 +319,28 @@ track.addEventListener('mouseenter', () => { hovering = true; schedule(); });
 track.addEventListener('mouseleave', () => { hovering = false; schedule(); });
 track.addEventListener('focusin', () => { paused = true; rotationLabel(); schedule(); });
 document.addEventListener('visibilitychange', schedule);
-reducedMotion.addEventListener('change', event => { paused = event.matches; rotationLabel(); schedule(); });
-new IntersectionObserver(entries => {
-  visible = entries[0].isIntersecting;
+function syncReducedMotion(event) {
+  paused = event.matches;
+  rotationLabel();
   schedule();
-}, { threshold: 0.35 }).observe(track);
-new ResizeObserver(() => {
+}
+if (reducedMotion.addEventListener) reducedMotion.addEventListener('change', syncReducedMotion);
+else if (reducedMotion.addListener) reducedMotion.addListener(syncReducedMotion);
+if ('IntersectionObserver' in window) {
+  new IntersectionObserver(entries => {
+    visible = entries[0].isIntersecting;
+    schedule();
+  }, { threshold: 0.35 }).observe(track);
+} else {
+  visible = true;
+  schedule();
+}
+function alignTrack() {
   if (!track.clientWidth) return;
-  track.scrollTo({ left: index * track.clientWidth, behavior: 'instant' });
-}).observe(track);
+  const left = index * track.clientWidth;
+  if (track.scrollTo) track.scrollTo({ left, behavior: 'auto' });
+  else track.scrollLeft = left;
+}
+if ('ResizeObserver' in window) new ResizeObserver(alignTrack).observe(track);
+else window.addEventListener('resize', alignTrack);
 rotationLabel();

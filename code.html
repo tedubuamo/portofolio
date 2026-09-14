@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="id">
+<html class="scroll-smooth scroll-pt-6 motion-reduce:scroll-auto" lang="id">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,22 +7,24 @@
     <meta name="theme-color" content="#ffffff">
     <title>Data Scientist | Portofolio</title>
 
-    <script>
-      try {
-        const theme = localStorage.getItem('portfolio-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        document.documentElement.dataset.theme = theme;
-        document.documentElement.classList.toggle('dark', theme === 'dark');
-      } catch (e) {
-        const theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        document.documentElement.dataset.theme = theme;
-        document.documentElement.classList.toggle('dark', theme === 'dark');
-      }
-    </script>
+<script>
+try {
+  const theme = localStorage.getItem('portfolio-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.dataset.theme = theme;
+  document.documentElement.style.colorScheme = theme;
+  document.documentElement.classList.toggle('dark', theme === 'dark');
+} catch (e) {
+  const theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  document.documentElement.dataset.theme = theme;
+  document.documentElement.style.colorScheme = theme;
+  document.documentElement.classList.toggle('dark', theme === 'dark');
+}
+</script>
 
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      window.tailwind = window.tailwind || {};
-      window.tailwind.config = {
-        darkMode: 'class',
+      tailwind.config = {
+        darkMode: ['class', '[data-theme="dark"]'],
         theme: {
           extend: {
             colors: {
@@ -50,9 +52,8 @@
         }
       };
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body id="top" class="bg-page font-sans text-ink antialiased dark:bg-darkPage dark:text-darkInk">
+  <body id="top" class="min-h-screen bg-page font-sans text-ink antialiased transition-colors duration-200 dark:bg-darkPage dark:text-darkInk">
     <a class="absolute -top-24 z-50 bg-page px-3 py-2 text-sm text-ink focus:top-0 dark:bg-darkPage dark:text-darkInk" href="#main" data-i18n="skip">Lewati navigasi</a>
     
     <header class="mx-auto flex min-h-[92px] w-[min(1120px,calc(100%_-_64px))] items-center justify-between gap-6 border-b border-line dark:border-darkLine max-[800px]:flex-wrap max-[800px]:py-[18px] max-[600px]:min-h-[78px] max-[600px]:w-[calc(100%_-_36px)] max-[600px]:gap-3.5 max-[600px]:py-4">
@@ -67,8 +68,8 @@
         <a class="hover:text-accent hover:underline dark:hover:text-darkAccent" href="#skills" data-i18n="navSkills">Keahlian</a>
         <a class="hover:text-accent hover:underline dark:hover:text-darkAccent" href="#connect" data-i18n="navContact">Kontak</a>
         <button class="h-9 w-9 flex-none rounded border border-line bg-page font-mono text-[11px] font-semibold leading-none text-ink hover:bg-soft focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#307dbe] dark:border-darkLine dark:bg-darkPage dark:text-darkInk dark:hover:bg-darkSoft" id="language-toggle" type="button" aria-label="Switch to English" title="Switch to English">EN</button>
-        <button class="h-9 w-9 flex-none rounded border border-line bg-page text-[22px] leading-none text-ink hover:bg-soft focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#307dbe] dark:border-darkLine dark:bg-darkPage dark:text-darkInk dark:hover:bg-darkSoft" id="theme-toggle" type="button" aria-label="Aktifkan mode gelap" title="Aktifkan mode gelap">
-          <span aria-hidden="true">◐</span>
+        <button class="h-9 w-9 flex-none rounded border border-line bg-page text-[18px] leading-none text-ink hover:bg-soft focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#307dbe] dark:border-darkLine dark:bg-darkPage dark:text-darkInk dark:hover:bg-darkSoft" id="theme-toggle" type="button" aria-label="Aktifkan mode gelap" title="Aktifkan mode gelap">
+          <span aria-hidden="true" data-theme-icon>◐</span>
         </button>
       </nav>
     </header>
@@ -186,7 +187,7 @@
             <p class="mb-0 max-w-[350px] text-sm leading-[1.72] text-muted dark:text-darkMuted max-[600px]:mt-4" data-i18n="projectsDescription">Masalah, pendekatan, dan teknologi di balik setiap proyek.</p>
           </div>
           <div role="region" aria-roledescription="carousel" aria-label="Proyek portofolio" data-i18n-aria="projectsCarousel">
-            <div class="flex snap-x snap-mandatory overflow-x-auto overscroll-x-contain scroll-smooth focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent dark:focus-visible:outline-darkAccent" id="project-track" tabindex="0" aria-label="Daftar proyek, gunakan panah kiri atau kanan" data-i18n-aria="projectsTrack">
+            <div class="flex snap-x snap-mandatory overflow-x-auto overscroll-x-contain scroll-smooth motion-reduce:scroll-auto focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent dark:focus-visible:outline-darkAccent" id="project-track" tabindex="0" aria-label="Daftar proyek, gunakan panah kiri atau kanan" data-i18n-aria="projectsTrack">
               <article class="grid min-w-0 flex-[0_0_100%] snap-start snap-always grid-cols-2 items-center gap-10 pb-3.5 max-[800px]:gap-6 max-[600px]:grid-cols-1 max-[600px]:content-start max-[600px]:gap-[18px]" role="group" aria-roledescription="slide" aria-label="1 dari 3" data-i18n-aria="slide1Label">
                 <figure class="m-0 min-w-0">
                   <img class="block h-[300px] w-full rounded-md border border-line bg-ink object-contain dark:border-darkLine max-[600px]:h-[200px]" src="screen.png" alt="Aset desain template, belum merupakan screenshot proyek 1" data-i18n-alt="project1ImageAlt" draggable="false">
@@ -244,9 +245,9 @@
             </div>
             <div class="mt-5 flex items-center justify-between gap-2.5">
               <div class="flex gap-1" aria-label="Pilih proyek" data-i18n-aria="chooseProject">
-                <button class="h-9 w-8 rounded-full bg-muted/25 p-2.5 outline-offset-2 aria-current:bg-accent aria-current:outline aria-current:outline-1 aria-current:outline-offset-2 aria-current:outline-accent dark:bg-darkMuted/25 dark:aria-current:bg-darkAccent dark:aria-current:outline-darkAccent" type="button" data-slide="0" aria-label="Tampilkan proyek 1" data-i18n-aria="showProject1" aria-current="true"></button>
-                <button class="h-9 w-8 rounded-full bg-muted/25 p-2.5 outline-offset-2 aria-current:bg-accent aria-current:outline aria-current:outline-1 aria-current:outline-offset-2 aria-current:outline-accent dark:bg-darkMuted/25 dark:aria-current:bg-darkAccent dark:aria-current:outline-darkAccent" type="button" data-slide="1" aria-label="Tampilkan proyek 2" data-i18n-aria="showProject2"></button>
-                <button class="h-9 w-8 rounded-full bg-muted/25 p-2.5 outline-offset-2 aria-current:bg-accent aria-current:outline aria-current:outline-1 aria-current:outline-offset-2 aria-current:outline-accent dark:bg-darkMuted/25 dark:aria-current:bg-darkAccent dark:aria-current:outline-darkAccent" type="button" data-slide="2" aria-label="Tampilkan proyek 3" data-i18n-aria="showProject3"></button>
+                <button class="h-9 w-8 rounded-full bg-muted/25 p-2.5 outline-offset-2 aria-[current=true]:bg-accent aria-[current=true]:outline aria-[current=true]:outline-1 aria-[current=true]:outline-offset-2 aria-[current=true]:outline-accent dark:bg-darkMuted/25 dark:aria-[current=true]:bg-darkAccent dark:aria-[current=true]:outline-darkAccent" type="button" data-slide="0" aria-label="Tampilkan proyek 1" data-i18n-aria="showProject1" aria-current="true"></button>
+                <button class="h-9 w-8 rounded-full bg-muted/25 p-2.5 outline-offset-2 aria-[current=true]:bg-accent aria-[current=true]:outline aria-[current=true]:outline-1 aria-[current=true]:outline-offset-2 aria-[current=true]:outline-accent dark:bg-darkMuted/25 dark:aria-[current=true]:bg-darkAccent dark:aria-[current=true]:outline-darkAccent" type="button" data-slide="1" aria-label="Tampilkan proyek 2" data-i18n-aria="showProject2"></button>
+                <button class="h-9 w-8 rounded-full bg-muted/25 p-2.5 outline-offset-2 aria-[current=true]:bg-accent aria-[current=true]:outline aria-[current=true]:outline-1 aria-[current=true]:outline-offset-2 aria-[current=true]:outline-accent dark:bg-darkMuted/25 dark:aria-[current=true]:bg-darkAccent dark:aria-[current=true]:outline-darkAccent" type="button" data-slide="2" aria-label="Tampilkan proyek 3" data-i18n-aria="showProject3"></button>
               </div>
               <div class="flex items-center justify-between gap-2.5 max-[600px]:gap-1.5">
                 <span class="mr-[15px] font-mono text-xs leading-[1.6] text-muted dark:text-darkMuted max-[600px]:mr-1" id="slide-count" aria-live="polite" aria-atomic="true">01 / 03</span>
@@ -299,19 +300,19 @@
             <p class="text-base leading-[1.72] text-muted dark:text-darkMuted" data-i18n="connectText">Temukan perjalanan profesional, kode, dan karya saya.</p>
           </div>
           <div>
-            <span class="flex items-center justify-between gap-5 border-b border-line py-4 dark:border-darkLine">
+            <span class="flex items-center justify-between gap-5 border-b border-line py-4 dark:border-darkLine max-[600px]:items-start">
               LinkedIn 
-              <a class="text-sm text-muted hover:text-accent hover:underline dark:text-darkMuted dark:hover:text-darkAccent" href="https://www.linkedin.com/in/ardiansyah-indra-febrianto/" target="_blank" rel="noopener noreferrer">www.linkedin.com/in/ardiansyah-indra-febrianto/</a>
+              <a class="min-w-0 break-all text-right text-sm text-muted hover:text-accent hover:underline dark:text-darkMuted dark:hover:text-darkAccent" href="https://www.linkedin.com/in/ardiansyah-indra-febrianto/" target="_blank" rel="noopener noreferrer">www.linkedin.com/in/ardiansyah-indra-febrianto/</a>
             </span>
-            <span class="flex items-center justify-between gap-5 border-b border-line py-4 dark:border-darkLine">
+            <span class="flex items-center justify-between gap-5 border-b border-line py-4 dark:border-darkLine max-[600px]:items-start">
               GitHub 
-              <a class="text-sm text-muted hover:text-accent hover:underline dark:text-darkMuted dark:hover:text-darkAccent" href="https://github.com/tedubuamo" target="_blank" rel="noopener noreferrer">github.com/tedubuamo</a>
+              <a class="min-w-0 break-all text-right text-sm text-muted hover:text-accent hover:underline dark:text-darkMuted dark:hover:text-darkAccent" href="https://github.com/tedubuamo" target="_blank" rel="noopener noreferrer">github.com/tedubuamo</a>
             </span>
-            <span class="flex items-center justify-between gap-5 border-b border-line py-4 dark:border-darkLine">
+            <span class="flex items-center justify-between gap-5 border-b border-line py-4 dark:border-darkLine max-[600px]:items-start">
               Instagram 
-              <a class="text-sm text-muted hover:text-accent hover:underline dark:text-darkMuted dark:hover:text-darkAccent" href="https://www.instagram.com/ardiansyah_if/" target="_blank" rel="noopener noreferrer">www.instagram.com/ardiansyah_if/</a>
+              <a class="min-w-0 break-all text-right text-sm text-muted hover:text-accent hover:underline dark:text-darkMuted dark:hover:text-darkAccent" href="https://www.instagram.com/ardiansyah_if/" target="_blank" rel="noopener noreferrer">www.instagram.com/ardiansyah_if/</a>
             </span>
-            <span class="flex items-center justify-between gap-5 border-b border-line py-4 dark:border-darkLine">
+            <span class="flex items-center justify-between gap-5 border-b border-line py-4 dark:border-darkLine max-[600px]:items-start">
               <span data-i18n="otherContactLabel">Kontak lainnya</span> 
               <small class="text-[11px] text-muted dark:text-darkMuted" data-i18n="linkMissing">Link belum ditambahkan</small>
             </span>
