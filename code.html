@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Portofolio Data Scientist. Analisis data, pemodelan, dan komunikasi insight dengan evaluasi yang transparan.">
+    <meta name="theme-color" content="#ffffff">
+    <title>Data Scientist | Portofolio</title>
+
+    <script>
+      try {
+        const theme = localStorage.getItem('portfolio-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.classList.toggle('dark', theme === 'dark');
+      } catch (e) {
+        const theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.classList.toggle('dark', theme === 'dark');
+      }
+    </script>
+
+    <script>
+      window.tailwind = window.tailwind || {};
+      window.tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              page: '#ffffff',
+              ink: '#202624',
+              muted: '#606965',
+              accent: '#21694f',
+              line: '#dce3de',
+              soft: '#f2f5f3',
+              chart: '#f6f8fa',
+              darkPage: '#141817',
+              darkInk: '#edf2ef',
+              darkMuted: '#adb9b2',
+              darkAccent: '#91d6b6',
+              darkLine: '#35423b',
+              darkSoft: '#1c2320',
+              darkChart: '#202825'
+            },
+            fontFamily: {
+              sans: ['Aptos', 'Segoe UI', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+              display: ['Aptos Display', 'Segoe UI', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+              mono: ['Cascadia Mono', 'Cascadia Code', 'Consolas', 'monospace']
+            }
+          }
+        }
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body id="top" class="bg-page font-sans text-ink antialiased dark:bg-darkPage dark:text-darkInk">
+    <a class="absolute -top-24 z-50 bg-page px-3 py-2 text-sm text-ink focus:top-0 dark:bg-darkPage dark:text-darkInk" href="#main" data-i18n="skip">Lewati navigasi</a>
+    
+    <header class="mx-auto flex min-h-[92px] w-[min(1120px,calc(100%_-_64px))] items-center justify-between gap-6 border-b border-line dark:border-darkLine max-[800px]:flex-wrap max-[800px]:py-[18px] max-[600px]:min-h-[78px] max-[600px]:w-[calc(100%_-_36px)] max-[600px]:gap-3.5 max-[600px]:py-4">
+      <a class="flex items-center gap-2 text-sm font-medium text-ink dark:text-darkInk max-[600px]:text-[13px]" href="#top">
+        <span class="mr-3 font-display text-[22px] font-semibold leading-none text-accent dark:text-darkAccent" aria-hidden="true">ds.</span> 
+        Data Science 
+        <span class="font-normal text-muted dark:text-darkMuted max-[800px]:hidden">/ Portfolio</span>
+      </a>
+      <nav class="flex items-center gap-[30px] text-sm text-ink dark:text-darkInk max-[800px]:gap-[18px] max-[600px]:w-full max-[600px]:justify-between max-[600px]:gap-2 max-[600px]:text-[11px]" aria-label="Navigasi utama" data-i18n-aria="mainNav">
+        <a class="hover:text-accent hover:underline dark:hover:text-darkAccent" href="#journey" data-i18n="navJourney">Perjalanan</a>
+        <a class="hover:text-accent hover:underline dark:hover:text-darkAccent" href="#projects" data-i18n="navProjects">Proyek</a>
+        <a class="hover:text-accent hover:underline dark:hover:text-darkAccent" href="#skills" data-i18n="navSkills">Keahlian</a>
+        <a class="hover:text-accent hover:underline dark:hover:text-darkAccent" href="#connect" data-i18n="navContact">Kontak</a>
+        <button class="h-9 w-9 flex-none rounded border border-line bg-page font-mono text-[11px] font-semibold leading-none text-ink hover:bg-soft focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#307dbe] dark:border-darkLine dark:bg-darkPage dark:text-darkInk dark:hover:bg-darkSoft" id="language-toggle" type="button" aria-label="Switch to English" title="Switch to English">EN</button>
+        <button class="h-9 w-9 flex-none rounded border border-line bg-page text-[22px] leading-none text-ink hover:bg-soft focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#307dbe] dark:border-darkLine dark:bg-darkPage dark:text-darkInk dark:hover:bg-darkSoft" id="theme-toggle" type="button" aria-label="Aktifkan mode gelap" title="Aktifkan mode gelap">
+          <span aria-hidden="true">◐</span>
+        </button>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- HERO SECTION -->
+      <section class="mx-auto w-[min(1120px,calc(100%_-_64px))] pt-16 max-[600px]:w-[calc(100%_-_36px)] max-[600px]:pt-[38px]">
+        <div class="mb-[54px] grid grid-cols-[minmax(0,1fr)_minmax(260px,340px)] items-center gap-[clamp(36px,6vw,86px)] max-[800px]:grid-cols-[minmax(0,1fr)_220px] max-[800px]:gap-7 max-[600px]:mb-[30px] max-[600px]:block">
+          <div class="min-w-0">
+            <p class="mb-5 font-mono text-[11px] font-medium uppercase leading-[1.6] text-accent dark:text-darkAccent">
+              <span class="mr-2 inline-block h-[7px] w-[7px] rounded-full bg-accent dark:bg-darkAccent"></span> 
+              <span data-i18n="heroEyebrow">MENGHUBUNGKAN DATA DENGAN KEPUTUSAN</span>
+            </p>
+            <h1 class="m-0 font-display text-[80px] font-medium leading-[1.06] text-ink dark:text-darkInk max-[800px]:text-[60px] max-[600px]:text-[42px]">
+              Data Scientist<span class="text-accent dark:text-darkAccent">.</span>
+            </h1>
+            <p class="my-[22px] text-[28px] leading-[1.45] text-ink dark:text-darkInk max-[600px]:text-[22px]" data-i18n-html="heroLead">
+              Data mentah menyimpan cerita.<br>Saya membantu menemukan maknanya.
+            </p>
+            <p class="mb-7 max-w-[680px] text-base leading-[1.72] text-muted dark:text-darkMuted max-[800px]:mb-6 max-[600px]:text-[15px]" data-i18n="heroDescription">
+              Peran saya adalah mengolah data, mengeksplorasi pola, dan membangun model untuk membantu menjawab pertanyaan nyata. Dari angka yang tersebar menjadi informasi yang bisa ditindaklanjuti.
+            </p>
+            <a class="inline-flex items-center gap-7 rounded bg-accent px-5 py-[13px] text-sm font-medium text-white hover:bg-[#18533e] dark:bg-darkAccent dark:text-darkPage" href="#approach">
+              <span data-i18n="heroButton">Bagaimana caranya?</span> 
+              <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+          <figure class="m-0 min-w-0 max-[600px]:mt-[30px] max-[600px]:max-w-[260px]">
+            <div class="grid aspect-[4/5] w-full place-items-center content-center rounded-md border border-line bg-soft p-6 text-center text-accent dark:border-darkLine dark:bg-darkSoft dark:text-darkAccent">
+              <span class="font-display text-xl font-medium text-ink dark:text-darkInk" data-i18n="photoTitle">Foto profesional</span>
+              <small class="mt-1.5 text-xs text-muted dark:text-darkMuted" data-i18n="photoHint">Ganti dengan foto Anda</small>
+            </div>
+            <figcaption class="mt-2.5 text-[11px] text-muted dark:text-darkMuted" data-i18n="photoCaption">Tempat untuk foto profil profesional.</figcaption>
+          </figure>
+        </div>
+        <div class="flex justify-between gap-5 border-t border-line py-[22px] font-mono text-xs leading-[1.6] text-muted dark:border-darkLine dark:text-darkMuted max-[600px]:flex-col max-[600px]:gap-1.5 max-[600px]:py-[18px]">
+          <span data-i18n="discipline1">01 / Memahami masalah</span>
+          <span data-i18n="discipline2">02 / Menguji dengan data</span>
+          <span data-i18n="discipline3">03 / Menjelaskan hasil</span>
+        </div>
+      </section>
+
+      <!-- APPROACH SECTION -->
+      <section class="bg-soft py-14 dark:bg-darkSoft max-[600px]:py-10" id="approach">
+        <div class="mx-auto w-[min(1120px,calc(100%_-_64px))] max-[600px]:w-[calc(100%_-_36px)]">
+          <div class="mb-[38px] flex items-end justify-between gap-[45px] max-[800px]:items-start max-[600px]:block">
+            <div>
+              <p class="mb-2.5 font-mono text-[11px] font-medium leading-[1.6] text-accent dark:text-darkAccent" data-i18n="processEyebrow">01 / PROSES</p>
+              <h2 class="m-0 font-display text-[34px] font-medium leading-[1.16] text-ink dark:text-darkInk max-[600px]:text-[30px]" data-i18n-html="processTitle">
+                Dari data mentah<br>ke keputusan bermakna.
+              </h2>
+            </div>
+            <p class="mb-0 max-w-[350px] text-sm leading-[1.72] text-muted dark:text-darkMuted max-[600px]:mt-4" data-i18n="processDescription">
+              Setiap tahap mengubah data menjadi sesuatu yang lebih berguna, dengan konteks dan keterbatasan yang tetap terlihat.
+            </p>
+          </div>
+          <div class="grid grid-cols-4 gap-[30px] max-[800px]:grid-cols-2 max-[600px]:gap-x-5 max-[600px]:gap-y-6">
+            <article class="border-t border-line pt-5 dark:border-darkLine">
+              <span class="font-mono text-xs leading-[1.6] text-accent dark:text-darkAccent">01 / COLLECT & CLEAN</span>
+              <h3 class="my-3 mt-5 font-display text-lg font-medium leading-[1.16] text-ink dark:text-darkInk max-[600px]:text-[17px]" data-i18n="step1Title">Rapikan data</h3>
+              <p class="m-0 text-sm leading-[1.72] text-muted dark:text-darkMuted max-[600px]:text-[13px]" data-i18n="step1Text">Kumpulkan sumber yang relevan, periksa kualitas, dan tangani data hilang serta duplikasi.</p>
+            </article>
+            <article class="border-t border-line pt-5 dark:border-darkLine">
+              <span class="font-mono text-xs leading-[1.6] text-accent dark:text-darkAccent">02 / EXPLORE</span>
+              <h3 class="my-3 mt-5 font-display text-lg font-medium leading-[1.16] text-ink dark:text-darkInk max-[600px]:text-[17px]" data-i18n="step2Title">Temukan pola</h3>
+              <p class="m-0 text-sm leading-[1.72] text-muted dark:text-darkMuted max-[600px]:text-[13px]" data-i18n="step2Text">Eksplorasi distribusi dan hubungan antarvariabel untuk menemukan informasi di balik angka.</p>
+            </article>
+            <article class="border-t border-line pt-5 dark:border-darkLine">
+              <span class="font-mono text-xs leading-[1.6] text-accent dark:text-darkAccent">03 / MODEL & VALIDATE</span>
+              <h3 class="my-3 mt-5 font-display text-lg font-medium leading-[1.16] text-ink dark:text-darkInk max-[600px]:text-[17px]" data-i18n="step3Title">Uji hipotesis</h3>
+              <p class="m-0 text-sm leading-[1.72] text-muted dark:text-darkMuted max-[600px]:text-[13px]" data-i18n="step3Text">Bangun analisis atau model, bandingkan baseline, lalu evaluasi pada data yang terpisah.</p>
+            </article>
+            <article class="border-t border-line pt-5 dark:border-darkLine">
+              <span class="font-mono text-xs leading-[1.6] text-accent dark:text-darkAccent">04 / COMMUNICATE</span>
+              <h3 class="my-3 mt-5 font-display text-lg font-medium leading-[1.16] text-ink dark:text-darkInk max-[600px]:text-[17px]" data-i18n="step4Title">Dukung keputusan</h3>
+              <p class="m-0 text-sm leading-[1.72] text-muted dark:text-darkMuted max-[600px]:text-[13px]" data-i18n="step4Text">Terjemahkan hasil menjadi visualisasi, rekomendasi, dan penjelasan tentang ketidakpastian.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- JOURNEY SECTION -->
+      <section class="mx-auto w-[min(1120px,calc(100%_-_64px))] py-[72px] max-[600px]:w-[calc(100%_-_36px)] max-[600px]:py-[45px]" id="journey">
+        <div class="mb-[38px] flex items-end justify-between gap-[45px] max-[800px]:items-start max-[600px]:block">
+          <div>
+            <p class="mb-2.5 font-mono text-[11px] font-medium leading-[1.6] text-accent dark:text-darkAccent" data-i18n="journeyEyebrow">02 / PERJALANAN</p>
+            <h2 class="m-0 font-display text-[34px] font-medium leading-[1.16] text-ink dark:text-darkInk max-[600px]:text-[30px]" data-i18n="journeyTitle">Belajar. Menerapkan. Bertumbuh.</h2>
+          </div>
+          <p class="mb-0 max-w-[350px] text-sm leading-[1.72] text-muted dark:text-darkMuted max-[600px]:mt-4" data-i18n="journeyDescription">Pengalaman magang dan perjalanan akademik yang membentuk cara saya menyelesaikan masalah.</p>
+        </div>
+        <div class="grid grid-cols-2 gap-12 max-[600px]:grid-cols-1 max-[600px]:gap-7">
+          <article class="border-t border-line pt-[25px] dark:border-darkLine">
+            <p class="mb-5 font-mono text-[11px] font-medium leading-[1.6] text-accent dark:text-darkAccent" data-i18n="internshipEyebrow">PENGALAMAN MAGANG</p>
+            <h3 class="mb-4 font-display text-[22px] font-medium leading-[1.16] text-ink dark:text-darkInk" data-i18n="internshipTitle">Posisi & perusahaan</h3>
+            <p class="border-l-2 border-accent pl-3 text-xs text-muted dark:border-darkAccent dark:text-darkMuted" data-i18n="internshipPlaceholder">Detail magang belum ditambahkan</p>
+            <p class="text-base leading-[1.72] text-muted dark:text-darkMuted" data-i18n="internshipText">Periode, tanggung jawab, kontribusi, dan hasil pekerjaan akan ditampilkan di sini setelah informasinya tersedia.</p>
+          </article>
+          <article class="border-t border-line pt-[25px] dark:border-darkLine">
+            <p class="mb-5 font-mono text-[11px] font-medium leading-[1.6] text-accent dark:text-darkAccent" data-i18n="educationEyebrow">PENDIDIKAN</p>
+            <h3 class="mb-4 font-display text-[22px] font-medium leading-[1.16] text-ink dark:text-darkInk" data-i18n="educationTitle">Program studi & institusi</h3>
+            <p class="border-l-2 border-accent pl-3 text-xs text-muted dark:border-darkAccent dark:text-darkMuted" data-i18n="educationPlaceholder">Detail studi belum ditambahkan</p>
+            <p class="text-base leading-[1.72] text-muted dark:text-darkMuted" data-i18n="educationText">Periode studi, bidang yang dipelajari, serta riset atau tugas akhir akan melengkapi perjalanan akademik saya.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- PROJECTS SECTION -->
+      <section class="bg-soft dark:bg-darkSoft">
+        <div class="mx-auto w-[min(1120px,calc(100%_-_64px))] py-[72px] max-[600px]:w-[calc(100%_-_36px)] max-[600px]:py-[45px]" id="projects">
+          <div class="mb-[38px] flex items-end justify-between gap-[45px] max-[800px]:items-start max-[600px]:block">
+            <div>
+              <p class="mb-2.5 font-mono text-[11px] font-medium leading-[1.6] text-accent dark:text-darkAccent" data-i18n="projectsEyebrow">03 / PROYEK</p>
+              <h2 class="m-0 font-display text-[34px] font-medium leading-[1.16] text-ink dark:text-darkInk max-[600px]:text-[30px]" data-i18n="projectsTitle">Ide yang dikerjakan.</h2>
+            </div>
+            <p class="mb-0 max-w-[350px] text-sm leading-[1.72] text-muted dark:text-darkMuted max-[600px]:mt-4" data-i18n="projectsDescription">Masalah, pendekatan, dan teknologi di balik setiap proyek.</p>
+          </div>
+          <div role="region" aria-roledescription="carousel" aria-label="Proyek portofolio" data-i18n-aria="projectsCarousel">
+            <div class="flex snap-x snap-mandatory overflow-x-auto overscroll-x-contain scroll-smooth focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent dark:focus-visible:outline-darkAccent" id="project-track" tabindex="0" aria-label="Daftar proyek, gunakan panah kiri atau kanan" data-i18n-aria="projectsTrack">
+              <article class="grid min-w-0 flex-[0_0_100%] snap-start snap-always grid-cols-2 items-center gap-10 pb-3.5 max-[800px]:gap-6 max-[600px]:grid-cols-1 max-[600px]:content-start max-[600px]:gap-[18px]" role="group" aria-roledescription="slide" aria-label="1 dari 3" data-i18n-aria="slide1Label">
+                <figure class="m-0 min-w-0">
+                  <img class="block h-[300px] w-full rounded-md border border-line bg-ink object-contain dark:border-darkLine max-[600px]:h-[200px]" src="screen.png" alt="Aset desain template, belum merupakan screenshot proyek 1" data-i18n-alt="project1ImageAlt" draggable="false">
+                  <figcaption class="mt-2.5 text-[11px] text-muted dark:text-darkMuted" data-i18n="projectImageCaption">Gambar placeholder · Belum merupakan dokumentasi proyek</figcaption>
+                </figure>
+                <div class="min-w-0 pr-5 max-[600px]:pr-0">
+                  <p class="mb-5 font-mono text-[11px] font-medium leading-[1.6] text-accent dark:text-darkAccent" data-i18n="project1Eyebrow">PROYEK 01 / PLACEHOLDER</p>
+                  <h3 class="mb-[18px] font-display text-[28px] font-medium leading-[1.16] text-ink dark:text-darkInk max-[800px]:text-[25px]" data-i18n="project1Title">Analisis & visualisasi data</h3>
+                  <p class="text-[15px] leading-[1.72] text-muted dark:text-darkMuted max-[600px]:text-sm" data-i18n="projectText">Detail proyek belum ditambahkan. Bagian ini akan menjelaskan masalah yang diselesaikan, peran saya, pendekatan, dan hasil yang dapat dibuktikan.</p>
+                  <div class="my-[22px]">
+                    <h4 class="mb-2.5 text-xs font-medium text-ink dark:text-darkInk">Tech stack</h4>
+                    <ul class="flex list-none flex-wrap gap-2 p-0">
+                      <li class="rounded border border-line px-2.5 py-1 font-mono text-xs leading-[1.6] text-muted dark:border-darkLine dark:text-darkMuted" data-i18n="notFilled">Belum diisi</li>
+                    </ul>
+                  </div>
+                  <span class="text-xs text-muted dark:text-darkMuted" data-i18n="repoPlaceholder">Repository & demo belum tersedia</span>
+                </div>
+              </article>
+              <article class="grid min-w-0 flex-[0_0_100%] snap-start snap-always grid-cols-2 items-center gap-10 pb-3.5 max-[800px]:gap-6 max-[600px]:grid-cols-1 max-[600px]:content-start max-[600px]:gap-[18px]" role="group" aria-roledescription="slide" aria-label="2 dari 3" data-i18n-aria="slide2Label">
+                <figure class="m-0 min-w-0">
+                  <img class="block h-[300px] w-full rounded-md border border-line bg-ink object-contain dark:border-darkLine max-[600px]:h-[200px]" src="screen.png" alt="Aset desain template, belum merupakan screenshot proyek 2" data-i18n-alt="project2ImageAlt" loading="lazy" draggable="false">
+                  <figcaption class="mt-2.5 text-[11px] text-muted dark:text-darkMuted" data-i18n="projectImageCaption">Gambar placeholder · Belum merupakan dokumentasi proyek</figcaption>
+                </figure>
+                <div class="min-w-0 pr-5 max-[600px]:pr-0">
+                  <p class="mb-5 font-mono text-[11px] font-medium leading-[1.6] text-accent dark:text-darkAccent" data-i18n="project2Eyebrow">PROYEK 02 / PLACEHOLDER</p>
+                  <h3 class="mb-[18px] font-display text-[28px] font-medium leading-[1.16] text-ink dark:text-darkInk max-[800px]:text-[25px]" data-i18n="project2Title">Pengembangan model</h3>
+                  <p class="text-[15px] leading-[1.72] text-muted dark:text-darkMuted max-[600px]:text-sm" data-i18n="projectText">Detail proyek belum ditambahkan. Bagian ini akan menjelaskan masalah yang diselesaikan, peran saya, pendekatan, dan hasil yang dapat dibuktikan.</p>
+                  <div class="my-[22px]">
+                    <h4 class="mb-2.5 text-xs font-medium text-ink dark:text-darkInk">Tech stack</h4>
+                    <ul class="flex list-none flex-wrap gap-2 p-0">
+                      <li class="rounded border border-line px-2.5 py-1 font-mono text-xs leading-[1.6] text-muted dark:border-darkLine dark:text-darkMuted" data-i18n="notFilled">Belum diisi</li>
+                    </ul>
+                  </div>
+                  <span class="text-xs text-muted dark:text-darkMuted" data-i18n="repoPlaceholder">Repository & demo belum tersedia</span>
+                </div>
+              </article>
+              <article class="grid min-w-0 flex-[0_0_100%] snap-start snap-always grid-cols-2 items-center gap-10 pb-3.5 max-[800px]:gap-6 max-[600px]:grid-cols-1 max-[600px]:content-start max-[600px]:gap-[18px]" role="group" aria-roledescription="slide" aria-label="3 dari 3" data-i18n-aria="slide3Label">
+                <figure class="m-0 min-w-0">
+                  <img class="block h-[300px] w-full rounded-md border border-line bg-ink object-contain dark:border-darkLine max-[600px]:h-[200px]" src="screen.png" alt="Aset desain template, belum merupakan screenshot proyek 3" data-i18n-alt="project3ImageAlt" loading="lazy" draggable="false">
+                  <figcaption class="mt-2.5 text-[11px] text-muted dark:text-darkMuted" data-i18n="projectImageCaption">Gambar placeholder · Belum merupakan dokumentasi proyek</figcaption>
+                </figure>
+                <div class="min-w-0 pr-5 max-[600px]:pr-0">
+                  <p class="mb-5 font-mono text-[11px] font-medium leading-[1.6] text-accent dark:text-darkAccent" data-i18n="project3Eyebrow">PROYEK 03 / PLACEHOLDER</p>
+                  <h3 class="mb-[18px] font-display text-[28px] font-medium leading-[1.16] text-ink dark:text-darkInk max-[800px]:text-[25px]" data-i18n="project3Title">Pengembangan aplikasi</h3>
+                  <p class="text-[15px] leading-[1.72] text-muted dark:text-darkMuted max-[600px]:text-sm" data-i18n="projectText">Detail proyek belum ditambahkan. Bagian ini akan menjelaskan masalah yang diselesaikan, peran saya, pendekatan, dan hasil yang dapat dibuktikan.</p>
+                  <div class="my-[22px]">
+                    <h4 class="mb-2.5 text-xs font-medium text-ink dark:text-darkInk">Tech stack</h4>
+                    <ul class="flex list-none flex-wrap gap-2 p-0">
+                      <li class="rounded border border-line px-2.5 py-1 font-mono text-xs leading-[1.6] text-muted dark:border-darkLine dark:text-darkMuted" data-i18n="notFilled">Belum diisi</li>
+                    </ul>
+                  </div>
+                  <span class="text-xs text-muted dark:text-darkMuted" data-i18n="repoPlaceholder">Repository & demo belum tersedia</span>
+                </div>
+              </article>
+            </div>
+            <div class="mt-5 flex items-center justify-between gap-2.5">
+              <div class="flex gap-1" aria-label="Pilih proyek" data-i18n-aria="chooseProject">
+                <button class="h-9 w-8 rounded-full bg-muted/25 p-2.5 outline-offset-2 aria-current:bg-accent aria-current:outline aria-current:outline-1 aria-current:outline-offset-2 aria-current:outline-accent dark:bg-darkMuted/25 dark:aria-current:bg-darkAccent dark:aria-current:outline-darkAccent" type="button" data-slide="0" aria-label="Tampilkan proyek 1" data-i18n-aria="showProject1" aria-current="true"></button>
+                <button class="h-9 w-8 rounded-full bg-muted/25 p-2.5 outline-offset-2 aria-current:bg-accent aria-current:outline aria-current:outline-1 aria-current:outline-offset-2 aria-current:outline-accent dark:bg-darkMuted/25 dark:aria-current:bg-darkAccent dark:aria-current:outline-darkAccent" type="button" data-slide="1" aria-label="Tampilkan proyek 2" data-i18n-aria="showProject2"></button>
+                <button class="h-9 w-8 rounded-full bg-muted/25 p-2.5 outline-offset-2 aria-current:bg-accent aria-current:outline aria-current:outline-1 aria-current:outline-offset-2 aria-current:outline-accent dark:bg-darkMuted/25 dark:aria-current:bg-darkAccent dark:aria-current:outline-darkAccent" type="button" data-slide="2" aria-label="Tampilkan proyek 3" data-i18n-aria="showProject3"></button>
+              </div>
+              <div class="flex items-center justify-between gap-2.5 max-[600px]:gap-1.5">
+                <span class="mr-[15px] font-mono text-xs leading-[1.6] text-muted dark:text-darkMuted max-[600px]:mr-1" id="slide-count" aria-live="polite" aria-atomic="true">01 / 03</span>
+                <button class="grid h-10 w-10 flex-none place-items-center rounded border border-line bg-page text-[21px] text-ink hover:border-accent focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent dark:border-darkLine dark:bg-darkPage dark:text-darkInk dark:hover:border-darkAccent dark:focus-visible:outline-darkAccent" type="button" id="previous" aria-label="Proyek sebelumnya" title="Proyek sebelumnya" data-i18n-aria="previousProject" data-i18n-title="previousProject">←</button>
+                <button class="grid h-10 w-10 flex-none place-items-center rounded border border-line bg-page text-[21px] text-ink hover:border-accent focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent dark:border-darkLine dark:bg-darkPage dark:text-darkInk dark:hover:border-darkAccent dark:focus-visible:outline-darkAccent" type="button" id="rotation" aria-label="Jeda slide otomatis" title="Jeda slide otomatis">Ⅱ</button>
+                <button class="grid h-10 w-10 flex-none place-items-center rounded border border-line bg-page text-[21px] text-ink hover:border-accent focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent dark:border-darkLine dark:bg-darkPage dark:text-darkInk dark:hover:border-darkAccent dark:focus-visible:outline-darkAccent" type="button" id="next" aria-label="Proyek berikutnya" title="Proyek berikutnya" data-i18n-aria="nextProject" data-i18n-title="nextProject">→</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS SECTION -->
+      <section class="mx-auto w-[min(1120px,calc(100%_-_64px))] py-[72px] max-[600px]:w-[calc(100%_-_36px)] max-[600px]:py-[45px]" id="skills">
+        <div class="mb-[38px] flex items-end justify-between gap-[45px] max-[800px]:items-start max-[600px]:block">
+          <div>
+            <p class="mb-2.5 font-mono text-[11px] font-medium leading-[1.6] text-accent dark:text-darkAccent" data-i18n="skillsEyebrow">04 / KEAHLIAN</p>
+            <h2 class="m-0 font-display text-[34px] font-medium leading-[1.16] text-ink dark:text-darkInk max-[600px]:text-[30px]" data-i18n="skillsTitle">Bekal untuk membangun.</h2>
+          </div>
+          <p class="mb-0 max-w-[350px] text-sm leading-[1.72] text-muted dark:text-darkMuted max-[600px]:mt-4" data-i18n="skillsDescription">Tools, kemampuan teknis, dan cara berkolaborasi dalam pengembangan aplikasi serta model.</p>
+        </div>
+        <div class="grid grid-cols-3 gap-[35px] max-[600px]:grid-cols-1 max-[600px]:gap-7">
+          <article class="border-t border-line pt-[22px] dark:border-darkLine">
+            <span class="font-mono text-xs leading-[1.6] text-accent dark:text-darkAccent">01</span>
+            <h3 class="my-5 mb-3.5 font-display text-[22px] font-medium leading-[1.16] text-ink dark:text-darkInk" data-i18n="toolsTitle">Tools & teknologi</h3>
+            <p class="text-sm leading-[1.72] text-muted dark:text-darkMuted" data-i18n="toolsText">Bahasa pemrograman, library, database, dan platform yang digunakan.</p>
+            <p class="text-xs text-muted dark:text-darkMuted" data-i18n="toolsPlaceholder">Daftar tools menunggu detail Anda.</p>
+          </article>
+          <article class="border-t border-line pt-[22px] dark:border-darkLine">
+            <span class="font-mono text-xs leading-[1.6] text-accent dark:text-darkAccent">02</span>
+            <h3 class="my-5 mb-3.5 font-display text-[22px] font-medium leading-[1.16] text-ink dark:text-darkInk" data-i18n="hardSkillsTitle">Hard skills</h3>
+            <p class="text-sm leading-[1.72] text-muted dark:text-darkMuted" data-i18n="hardSkillsText">Kemampuan teknis dalam pengolahan data, pemodelan, dan pengembangan aplikasi.</p>
+            <p class="text-xs text-muted dark:text-darkMuted" data-i18n="hardSkillsPlaceholder">Daftar hard skills belum ditambahkan.</p>
+          </article>
+          <article class="border-t border-line pt-[22px] dark:border-darkLine">
+            <span class="font-mono text-xs leading-[1.6] text-accent dark:text-darkAccent">03</span>
+            <h3 class="my-5 mb-3.5 font-display text-[22px] font-medium leading-[1.16] text-ink dark:text-darkInk" data-i18n="softSkillsTitle">Soft skills</h3>
+            <p class="text-sm leading-[1.72] text-muted dark:text-darkMuted" data-i18n="softSkillsText">Kemampuan berkomunikasi, menyelesaikan masalah, dan bekerja bersama tim.</p>
+            <p class="text-xs text-muted dark:text-darkMuted" data-i18n="softSkillsPlaceholder">Daftar soft skills belum ditambahkan.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- CONNECT SECTION -->
+      <section class="bg-soft dark:bg-darkSoft" id="connect">
+        <div class="mx-auto grid w-[min(1120px,calc(100%_-_64px))] grid-cols-2 gap-[60px] py-[72px] max-[800px]:gap-[30px] max-[600px]:w-[calc(100%_-_36px)] max-[600px]:grid-cols-1 max-[600px]:gap-7 max-[600px]:py-[45px]">
+          <div>
+            <p class="mb-5 font-mono text-[11px] font-medium leading-[1.6] text-accent dark:text-darkAccent" data-i18n="connectEyebrow">05 / TERHUBUNG</p>
+            <h2 class="mb-[18px] font-display text-[34px] font-medium leading-[1.16] text-ink dark:text-darkInk max-[600px]:text-[30px]" data-i18n="connectTitle">Mari bertukar ide.</h2>
+            <p class="text-base leading-[1.72] text-muted dark:text-darkMuted" data-i18n="connectText">Temukan perjalanan profesional, kode, dan karya saya.</p>
+          </div>
+          <div>
+            <span class="flex items-center justify-between gap-5 border-b border-line py-4 dark:border-darkLine">
+              LinkedIn 
+              <a class="text-sm text-muted hover:text-accent hover:underline dark:text-darkMuted dark:hover:text-darkAccent" href="https://www.linkedin.com/in/ardiansyah-indra-febrianto/" target="_blank" rel="noopener noreferrer">www.linkedin.com/in/ardiansyah-indra-febrianto/</a>
+            </span>
+            <span class="flex items-center justify-between gap-5 border-b border-line py-4 dark:border-darkLine">
+              GitHub 
+              <a class="text-sm text-muted hover:text-accent hover:underline dark:text-darkMuted dark:hover:text-darkAccent" href="https://github.com/tedubuamo" target="_blank" rel="noopener noreferrer">github.com/tedubuamo</a>
+            </span>
+            <span class="flex items-center justify-between gap-5 border-b border-line py-4 dark:border-darkLine">
+              Instagram 
+              <a class="text-sm text-muted hover:text-accent hover:underline dark:text-darkMuted dark:hover:text-darkAccent" href="https://www.instagram.com/ardiansyah_if/" target="_blank" rel="noopener noreferrer">www.instagram.com/ardiansyah_if/</a>
+            </span>
+            <span class="flex items-center justify-between gap-5 border-b border-line py-4 dark:border-darkLine">
+              <span data-i18n="otherContactLabel">Kontak lainnya</span> 
+              <small class="text-[11px] text-muted dark:text-darkMuted" data-i18n="linkMissing">Link belum ditambahkan</small>
+            </span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="mx-auto flex w-[min(1120px,calc(100%_-_64px))] justify-between gap-5 py-[25px] text-xs text-muted dark:text-darkMuted max-[600px]:w-[calc(100%_-_36px)] max-[600px]:flex-wrap max-[600px]:text-[11px]">
+      <span data-i18n="footerText">© 2026 All rights reserved.</span>
+      <a class="hover:text-accent hover:underline dark:hover:text-darkAccent" href="#top" data-i18n="backToTop">Kembali ke atas ↑</a>
+    </footer>
+
+    <script src="portfolio.js" defer></script>
+  </body>
+</html>
