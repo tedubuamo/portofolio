@@ -187,7 +187,7 @@ Projects appear in a horizontal snap carousel. Each slide pairs a project image 
 
 ### Skill Columns
 
-The skills section uses three simple columns for tools, hard skills, and soft skills. Each column is an editorial block with a top rule and concise body copy.
+The skills section uses three simple columns for tools, hard skills, and soft skills. Each column is an editorial block with a top rule and concise body copy. Hard skills are shown as individual colored badges so each capability is easier to scan than a comma-separated sentence.
 
 ### Contact
 
