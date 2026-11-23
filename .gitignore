@@ -1,0 +1,7 @@
+# Local browser QA artifacts
+/qa/
+/outputs/
+
+# Common local files
+.DS_Store
+Thumbs.db
