@@ -2,6 +2,28 @@
 /qa/
 /outputs/
 
+# Local project references and private source documents
+/skills/
+/*.pdf
+
+# Local environment and editor state
+/.agents/
+/.codex/
+/.claude/
+/.vscode/
+.env
+.env.*
+!.env.example
+
+# Dependencies, caches, and logs
+/node_modules/
+/.cache/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
 # Common local files
 .DS_Store
 Thumbs.db
